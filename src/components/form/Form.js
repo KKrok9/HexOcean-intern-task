@@ -3,6 +3,7 @@ import "../../styles/form.css";
 import { useState } from "react";
 import SelectBox from "../input/SelectBox";
 import ConditionalInputs from "../input/ConditionalInputs";
+import { API_URL } from "../../constants/api";
 const dishes = [
   {
     name: "pizza",
@@ -75,23 +76,23 @@ const Form = () => {
 
   async function registerUser() {
     const toSendObject = createToSendObject();
-    const response = await fetch(
-      "https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/",
-      {
+    try {
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(toSendObject),
-      }
-    );
-    const data = await response.json();
-    console.log(data);
+      });
+      const data = await response.json();
+      console.log("Data submitted !", data);
+    } catch (error) {
+      console.error("Error occurred while submitting data", error);
+    }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(createToSendObject());
     registerUser();
   };
 
