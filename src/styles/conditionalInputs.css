@@ -1,0 +1,27 @@
+.conditional-inputs-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conditional-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.conditional-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.conditional-input {
+  width: 70%;
+  height: 80%;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
